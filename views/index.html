@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>健身王牌</title>
+    <!-- =================== META =================== -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link href="/css/theme.css" rel="stylesheet">
+    <!-- Demo CSS - No need to use these in your project -->
+    <link href="/css/demo.css" rel="stylesheet">
+    <!-- =================== STYLE =================== -->
+    <link rel="stylesheet" href="/static/css/slick.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body id="home" class="page-fitness">
+
+<%- include('header.html') -%>
+
+<!--轮播图-->
+<section class="s-crossfit-slider">
+    <div class="crossfit-slider">
+        <div class="crossfit-slide">
+            <div class="crossfit-slider-effect effect-1">
+                <div data-hover-only="true" class="scene">
+                    <span class="scene-item" data-depth="0.2"
+                          style="background-image: url(static/image/effect-1.svg);"></span>
+                </div>
+            </div>
+            <div class="crossfit-slider-effect effect-2">
+                <div data-hover-only="true" class="scene">
+                    <span class="scene-item" data-depth="0.4"
+                          style="background-image: url(static/image/effect-2.svg);"></span>
+                </div>
+            </div>
+            <div class="crossfit-slide-bg" style="background-image: url(static/image/slide-1.jpg);"></div>
+            <div class="container">
+                <div class="crossfit-slide-cover">
+                    <h2 class="title">主宰 <span>自己</span></h2>
+                    <p>每天锻炼一小时，告别拖延，甩走懒惰，见证自己<br>健身对身体健康有好处，难道对心理也有影响吗?答案是肯定的，健身不但对身体健康有帮助，还能调节人们的心态，使其心理也得到健康发展</p>
+                </div>
+            </div>
+        </div>
+        <div class="crossfit-slide">
+            <div class="crossfit-slider-effect effect-1">
+                <div data-hover-only="true" class="scene">
+                    <span class="scene-item" data-depth="0.2"
+                          style="background-image: url(static/image/effect-1.svg);"></span>
+                </div>
+            </div>
+            <div class="crossfit-slider-effect effect-2">
+                <div data-hover-only="true" class="scene">
+                    <span class="scene-item" data-depth="0.4"
+                          style="background-image: url(static/image/effect-2.svg);"></span>
+                </div>
+            </div>
+            <div class="crossfit-slide-bg" style="background-image: url(static/image/slide-2.jpg);"></div>
+            <div class="container">
+                <div class="crossfit-slide-cover">
+                    <h2 class="title">主宰 <span>自己</span></h2>
+                    <p>每天锻炼一小时，告别拖延，甩走懒惰，见证自己<br>健身对身体健康有好处，难道对心理也有影响吗?答案是肯定的，健身不但对身体健康有帮助，还能调节人们的心态，使其心理也得到健康发展</p>
+                </div>
+            </div>
+        </div>
+        <div class="crossfit-slide">
+            <div class="crossfit-slider-effect effect-1">
+                <div data-hover-only="true" class="scene">
+                    <span class="scene-item" data-depth="0.2"
+                          style="background-image: url(static/image/effect-1.svg);"></span>
+                </div>
+            </div>
+            <div class="crossfit-slider-effect effect-2">
+                <div data-hover-only="true" class="scene">
+                    <span class="scene-item" data-depth="0.4"
+                          style="background-image: url(static/image/effect-2.svg);"></span>
+                </div>
+            </div>
+            <div class="crossfit-slide-bg" style="background-image: url(static/image/slide-3.jpg);"></div>
+            <div class="container">
+                <div class="crossfit-slide-cover">
+                    <h2 class="title">主宰 <span>自己</span></h2>
+                    <p>每天锻炼一小时，告别拖延，甩走懒惰，见证自己<br>健身对身体健康有好处，难道对心理也有影响吗?答案是肯定的，健身不但对身体健康有帮助，还能调节人们的心态，使其心理也得到健康发展</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider-navigation">
+        <div class="container">
+            <div class="slider-navigation-cover"></div>
+        </div>
+    </div>
+</section>
+
+<!--热门项目-->
+<section class="s-out-trainer" style="background-image: url(static/image/bg-contacts.svg);">
+    <div class="section-title-bg">热门项目</div>
+    <div class="container">
+
+        <h2 class="title-decor"><span>热门健身</span></h2>
+        <p class="slogan">来自专业私教的推荐</p>
+        <div class="row">
+            <% motions.forEach(motion => { %>
+            <% if (motion.class == 1) { %>
+            <div class="col-md-4 crossfit-col" style="margin-top: 5%">
+                <div class="crossfit-item">
+                    <img src="static/picture/serv-2.svg" alt="img">
+                    <h3><span style="color: #f2f2f2"><%= motion.title %></span></h3>
+                    <p><%= motion.content.replace(/<[^>]+>/g,'').substring(0,60) %></p>
+                    <a class="btn" href="/about/<%=motion.id%>">查看更多</a>
+                </div>
+            </div>
+            <% } else { %>
+
+            <% } %>
+
+            <% }) %>
+
+
+        </div>
+    </div>
+</section>
+
+<!--常规活动-->
+<section class="s-out-trainer" style="background-image: url(static/image/bg-contacts.svg);">
+    <div class="section-title-bg">项目板块</div>
+    <div class="container">
+
+        <h2 class="title-decor"><span>常规内容</span></h2>
+        <p class="slogan">建议新手从这开始</p>
+        <div class="row">
+            <% motions.forEach(motion => { %>
+            <% if (motion.class == 0) { %>
+            <div class="col-md-4 crossfit-col">
+                <div class="crossfit-item">
+                    <img src="static/picture/serv-1.svg" alt="img">
+                    <h3><span style="color:#f2f2f2;"><%= motion.title %></span></h3>
+                    <p><%= motion.content.replace(/<[^>]+>/g,'').substring(0,60) %></p>
+                    <a class="btn" href="/about/<%=motion.id%>">查看更多</a>
+                </div>
+            </div>
+            <% } else { %>
+
+            <% } %>
+
+
+            <% }) %>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!--恢复活动-->
+<section class="s-out-trainer" style="background-image: url(static/image/bg-contacts.svg);">
+    <div class="section-title-bg">项目板块</div>
+    <div class="container">
+
+        <h2 class="title-decor"><span>恢复活动</span></h2>
+        <p class="slogan">恢复运动是后续成长的基石，切勿急躁</p>
+        <div class="row">
+            <% motions.forEach(motion => { %>
+            <% if (motion.class == 2) { %>
+            <div class="col-md-4 crossfit-col">
+                <div class="crossfit-item">
+                    <img src="static/picture/serv-1.svg" alt="img">
+                    <h3><span style="color:#f2f2f2;"><%= motion.title %></span></h3>
+                    <p><%= motion.content.replace(/<[^>]+>/g,'').substring(0,60) %></p>
+                    <a class="btn" href="/about/<%=motion.id%>">查看更多</a>
+                </div>
+            </div>
+            <% } else { %>
+
+            <% } %>
+
+
+            <% }) %>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!--线下预约-->
+<section class="s-out-trainer" style="background-image: url(static/image/bg-contacts.svg);">
+    <div class="section-title-bg">线下预约</div>
+    <div class="container">
+        <h2 class="title-decor"><span>预约指导</span></h2>
+        <p class="slogan">获得线下更好的训练指导</p>
+        <div class="row">
+            <% bookings.forEach(booking => { %>
+            <div class="col-md-4 crossfit-col">
+                <div class="crossfit-item">
+                    <img src="static/picture/serv-3.svg" alt="img">
+                    <h3 style="color:#f2f2f2;"><%= booking.title %></h3>
+                    <p><%= booking.content.replace(/<[^>]+>/g,'').substring(0,60) %></p>
+                    <p><%= booking.page %></p>
+                    <div class="post-footer">
+                        <div class="meta">
+                            <h3><span style="color:#f2f2f2;"><%= booking.time %></span></h3>
+                        </div>
+
+                        <button type="button" class="btn" data-toggle="modal"
+                                data-target="#model_<%= booking.id %>">
+                            查看详情
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <% }) %>
+
+
+        </div>
+
+
+        <% bookings.forEach(act => { %>
+        <div class="modal modal-fluid fade" id="model_<%= act.id %>" tabindex="-1" role="dialog"
+             aria-labelledby="model_<%= act.id %>" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 text-center py-4">
+                                <h4 class="heading h3">指导详情</h4>
+
+                                <div style="margin: 10px 0px">
+                                    <p class="lead text-muted">
+                                        <%= act.content %>
+                                    </p>
+                                </div>
+
+
+                                <% getAgent.forEach(Agent => { %>
+
+                                <% if (act.user_id == Agent.id) { %>
+                                <div style="margin: 10px 0px">
+                                    <h5><span>指导教练：</span><%= Agent.username %></h5>
+
+                                </div>
+
+
+                                <% } else { %>
+
+                                <% } %>
+
+
+                                <% }) %>
+
+                                <% if (user) { %>
+                                <form action="/index/add" method="POST">
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                               type="hidden" name="user_id"
+                                               value="<%=user.id%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                               type="hidden" name="booking_id"
+                                               value="<%=act.id%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                               type="hidden" name="teach_id"
+                                               value="<%=act.user_id%>">
+                                    </div>
+
+
+                                    <div class="form-group" style="margin: 10px 0px">
+                                        <span style="color: #0b2e13">可选地点:</span>
+                                        <select name="place">
+                                            <% for (var i = 0; i < JSON.parse(act.place).length; i++) { %>
+                                            <option value="<%= JSON.parse(act.place)[i] %>"><%= JSON.parse(act.place)[i]
+                                                %>
+                                            </option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <button type="submit" class="btn" >预约
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <% } else { %>
+                                <button type="button" class="btn "><a class="" href="/login">登录</a></button>
+
+
+                                <% } %>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    </div>
+</section>
+<!--教练面板装饰-->
+<section class="s-best-trainer fitness-best-trainer">
+    <span class="section-title-bg">指导教练</span>
+    <div class="container">
+        <h2 class="title-decor"><span>专业教练</span></h2>
+        <p class="slogan">在这里你可以和众多健身达人一起强健体魄</p>
+    </div>
+    <div class="best-trainer-slider">
+        <a class="best-trainer-slide">
+            <div class="best-trainer-img">
+                <img src="static/picture/single-1.jpg" alt="img">
+            </div>
+            <h3 class="name">Samanta</h3>
+            <h3 class="surname">Piters</h3>
+            <div class="prof">weightlifting</div>
+        </a>
+        <a class="best-trainer-slide">
+            <div class="best-trainer-img">
+                <img src="static/picture/single-2.jpg" alt="img">
+            </div>
+            <h3 class="name">Artur</h3>
+            <h3 class="surname">Piters</h3>
+            <div class="prof">weightlifting</div>
+        </a>
+        <a class="best-trainer-slide">
+            <div class="best-trainer-img">
+                <img src="static/picture/single-3.jpg" alt="img">
+            </div>
+            <h3 class="name">Kim</h3>
+            <h3 class="surname">Piters</h3>
+            <div class="prof">weightlifting</div>
+        </a>
+        <a class="best-trainer-slide">
+            <div class="best-trainer-img">
+                <img src="static/picture/single-4.jpg" alt="img">
+            </div>
+            <h3 class="name">Sam</h3>
+            <h3 class="surname">Piters</h3>
+            <div class="prof">weightlifting</div>
+        </a>
+        <a class="best-trainer-slide">
+            <div class="best-trainer-img">
+                <img src="static/picture/single-5.jpg" alt="img">
+            </div>
+            <h3 class="name">Anna</h3>
+            <h3 class="surname">Piters</h3>
+            <div class="prof">weightlifting</div>
+        </a>
+    </div>
+</section>
+
+<!--活动预告-->
+<section class="s-fitness-posts">
+    <div class="section-title-bg">计划活动</div>
+    <div class="container">
+        <h2 class="title-decor">预告 <span>计划活动</span></h2>
+        <p class="slogan">我们还准备了更多惊喜，活动预告可以在这找到哦</p>
+        <div class="row">
+
+            <% activitys.forEach(activity => { %>
+            <div class="col-md-4 fitness-post-col mb-md" style="margin-top: 5%">
+                <div class="post-item-cover">
+                    <div class="post-header" style="background-image: url(static/image/home-price-1.svg);">
+                        <div class="date">活动通知</div>
+                    </div>
+                    <div class="post-content">
+                        <h2 class="title"><a href="single-blog.html"><%= activity.title %></a></h2>
+                        <div class="text">
+                            <p><%= activity.content.replace(/<[^>]+>/g,'').substring(0,60) %>...</p>
+                        </div>
+                    </div>
+
+                    <div class="post-footer">
+                        <div class="meta">
+                            <h3><span class="post-tags"><%= activity.time %></span></h3>
+                        </div>
+
+                        <button type="button" class="btn" data-toggle="modal"
+                                data-target="#model_<%= activity.id %>">
+                            查看详情
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+
+
+            <% activitys.forEach(act => { %>
+            <div class="modal modal-fluid fade" id="model_<%= act.id %>" tabindex="-1" role="dialog"
+                 aria-labelledby="model_<%= act.id %>" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 text-center py-4">
+                                    <h4 class="heading h3">活动详情</h4>
+                                    <p class="lead text-muted">
+                                        <%= act.content %>
+                                    </p>
+                                    <% if (user) { %>
+
+                                    <button type="button" class="btn " data-dismiss="modal">了解</button>
+
+
+                                    <% } else { %>
+                                    <button type="button" class="btn "><a class="" href="/login">登录</a></button>
+
+
+                                    <% } %>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+
+
+        </div>
+    </div>
+</section>
+
+<!--运动成功-->
+<section class="s-fitness-gallery">
+    <div class="section-title-bg">成果</div>
+    <div class="container">
+        <h2 class="title-decor">Our <span>锻炼成果</span></h2>
+        <p class="slogan">年轻就是要运动起来，健身行动，加入我们 <br>
+<!--            <button type="button" class="btn ">上传我的成果</button>-->
+        </p>
+
+
+        <div class="row-gallery">
+            <div class="grid-gallery">
+                <div class="grid-sizer"></div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-1-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-1-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">Maecenas consequat</h4>
+                            <p>Mauris id erat enim</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-2-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-2-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">dolor sit amet</h4>
+                            <p>Mauris id erat enim</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-3-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-3-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">labore et dolore</h4>
+                            <p>Mauris id erat enim</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-4-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-4-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">adipiscing elit</h4>
+                            <p>Mauris id erat enim</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-8-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-8-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">ullamco laboris</h4>
+                            <p>Ut enim ad minima veniam</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-6-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-6-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">sed do eiusmod</h4>
+                            <p>Sunt in culpa qui</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-7-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-7-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">magna aliqua</h4>
+                            <p>Voluptas sit aspernatur</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-5-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-5-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">consectetur adipiscing</h4>
+                            <p>Sint occaecat cupidatat</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-11-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-11-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">lorem ipsum</h4>
+                            <p>Maecenas consequat</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-10-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-10-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">quis nostrud</h4>
+                            <p>Maecenas consequat</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="static/picture/gall-9-min.jpg" data-fancybox="gallery1">
+                        <img src="static/picture/gall-9-min.jpg" alt="img">
+                        <div class="gal-item">
+                            <h4 class="title">tempor incididunt</h4>
+                            <p>Accusantium doloremque laud</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<%- include('footer.html') -%>
+
+<a class="to-top" href="#home">
+    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+</a>
+<!--================= TO TOP END =================-->
+
+<!--=================== SCRIPT	===================-->
+<script src="/static/js/jquery-2.2.4.min.js"></script>
+<script src="/static/js/slick.min.js"></script>
+<script src="/static/js/isotope.pkgd.js"></script>
+<script src="/static/js/jquery.fancybox.js"></script>
+<script src="/static/js/rx-lazy.js"></script>
+<script src="/static/js/parallax.min.js"></script>
+<script src="/static/js/scripts.js"></script>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/popper/popper.min.js"></script>
+<script src="/js/bootstrap/bootstrap.min.js"></script>
+<script src="/js/publick.js"></script>
+<% if (code) { %>
+<script>
+    document.location.href = 'http://localhost:7000'
+</script>
+
+<% } else { %>
+
+<% } %>
+<!-- FontAwesome 5 -->
+<script src="/vendor/fontawesome/js/fontawesome-all.min.js" defer></script>
+<!-- Page plugins -->
+<script src="/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+<script src="/vendor/input-mask/input-mask.min.js"></script>
+<script src="/vendor/nouislider/js/nouislider.min.js"></script>
+<script src="/vendor/textarea-autosize/textarea-autosize.min.js"></script>
+<!-- Theme JS -->
+<script src="/js/theme.js"></script>
+</body>
+</html>

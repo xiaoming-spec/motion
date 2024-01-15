@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <title>王牌论坛</title>
+    <!-- =================== META =================== -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- =================== STYLE =================== -->
+    <link rel="stylesheet" href="/static/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body id="home">
+<!--================ PRELOADER ================-->
+
+<!--============== PRELOADER END ==============-->
+
+<!-- ================= HEADER ================= -->
+<header class="header-fitness">
+    <a href="#" class="nav-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+
+    <div class="header-menu">
+        <div class="container">
+            <div class="header-logo">
+                <a href="/" class="logo">欢迎来到，健身王牌</a>
+            </div>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+
+                    <% if (user) { %>
+                    <li><a href="/">返回首页</a></li>
+                    <li><a href="/place">健身房</a></li>
+                    <li class="dropdown">
+                        <a href="#"><%=user.username%> <i class="fa fa-caret-down"></i></a>
+                        <ul>
+                            <li><a href="/admin/index">个人中心</a></li>
+                            <li><a href="/user/logout">退出</a></li>
+                        </ul>
+                    </li>
+
+                    <% } else { %>
+                    <li><a href="/">返回主站</a></li>
+                    <li><a href="/place">健身房</a></li>
+                    <li><a href="/admin/login">登录</a></li>
+                    <% } %>
+
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- =============== HEADER END =============== -->
+
+<section class="s-news">
+
+
+    <section class="s-out-trainer" style="background-image: url(/static/image/bg-contacts.svg);">
+        <div class="section-title-bg" style="margin: 100px 0px;padding: 10px">社交论坛</div>
+        <div class="container">
+
+            <h2 class="title-decor" style="margin: 50px"><span>社交论坛</span></h2>
+            <p class="slogan">在这里可以分享自己的经历，更多的人找到适合的路线，结交朋友</p>
+            <section class="s-testimonials testimonials-border"
+                     style="background-image: url(static/image/bg-testimonials.jpg);">
+                <div class="mask"></div>
+                <img class="testimonials-effect" src="static/picture/bg-testi-2.svg" alt="effect">
+                <div class="container">
+                    <div class="testimonials-slider">
+
+                        <div class="testimonial-slide">
+                            <h3 class="name">站长忠告</h3>
+                            <div class="prof">祝愿各位都能有一个健康的身体</div>
+                            <p>
+                                1、健身之前要定制一份适合自己的健身计划
+                            </p>
+                            <p>
+                                2、健身时间不宜太短或者太长
+                            </p>
+                            <p>
+                                3、健身之前要热身，不要忽略热身这个环节
+                            </p>
+                            <p>
+                                4、健身要劳逸结合，不要 过度训练
+                            </p>
+                            <p>
+                                5、健身要力量训练结合有氧运动
+                            </p>
+                            <p>
+                                6、健身增肌的人，训练前后可以进行加餐，健身减脂的人不要空腹锻炼
+                            </p>
+                            <p>
+                                7、健身要做到干净饮食，远离垃圾食品。注意补水
+                            </p>
+                        </div>
+
+                    </div>
+            </section>
+
+
+            <div class="row">
+                <div class="col-md-6 crossfit-col">
+                    <div class="out-trainer-item">
+                        <a href="trainer.html" class="out-trainer-img"><img class="rx-lazy"
+                                                                            src="static/picture/placeholder-all.png"
+                                                                            data-src="assets/img/trainer-1.jpg"
+                                                                            alt="img"></a>
+                        <div class="out-trainer-info">
+                            <h3><a href="trainer.html">欢迎来访</a></h3>
+                            <div class="prof">让更多的运动爱好者找到居所</div>
+                            <p>这里是跑步与健身爱好者的乐园，更是关心你身体健康的家园！</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 crossfit-col">
+                    <div class="out-trainer-item">
+                        <a href="trainer.html" class="out-trainer-img"><img class="rx-lazy"
+                                                                            src="static/picture/placeholder-all.png"
+                                                                            data-src="assets/img/trainer-2.jpg"
+                                                                            alt="img"></a>
+                        <div class="out-trainer-info">
+                            <h3><a href="trainer.html">如何成为健身达人</a></h3>
+                            <div class="prof">与君共勉</div>
+                            <p>现在的话已经很少有人去登录一些网站或者是论坛了，现在大部分基本都是公众号，或者是一些交流群交流圈子。但是我觉得真正有用的并不是客观因素导致的环境，而是问心无愧的坚持</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <% topics.forEach(topic => { %>
+                <div class="col-md-12 crossfit-col">
+                    <div class="out-trainer-item">
+                        <a href="/news/<%= topic.id %>" class="out-trainer-img"><img class="rx-lazy"
+                                                                                     src="/static/picture/placeholder-all.png"
+                                                                                     data-src="/assets/img/trainer-3.jpg"
+                                                                                     alt="img"></a>
+                        <div class="out-trainer-info">
+                            <h1><a href="/news/<%= topic.id %>"><%= topic.title %></a></h1>
+                            <p><%= topic.content %></p>
+                            <p></p>
+                            <ul class="">
+                                <a class="btn" href="/news/<%= topic.id %>">了解更多</a>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+
+
+            </div>
+        </div>
+    </section>
+    <section class="s-trainer-awards" style="background-image: url(static/image/bg-2.jpg);">
+        <div class="mask"></div>
+        <img class="trainer-awards-effect" src="static/picture/bg-competitions.svg" alt="effect">
+        <div class="container">
+            <h2 class="title-decor">健身 <span>王牌</span></h2>
+            <p class="slogan">让喜欢运动的人通过平台寻找到相同爱好朋友一起活动</p>
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 trainer-award-col">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <h3>朋友圈</h3>
+                    <p>让更多的运动爱好者找到居所</p>
+                </div>
+                <div class="col-sm-6 col-lg-3 trainer-award-col">
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                    <h3>成绩</h3>
+                    <p>让每一次成长都伴随汗水</p>
+                </div>
+                <div class="col-sm-6 col-lg-3 trainer-award-col">
+                    <i class="fa fa-area-chart" aria-hidden="true"></i>
+                    <h3>量化</h3>
+                    <p>针对你的不同需求,制定专属训练计划</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</section>
+
+<%- include('footer.html') -%>
+
+<a class="to-top" href="#home">
+    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+</a>
+
+<script src="/static/js/jquery-2.2.4.min.js"></script>
+<script src="/static/js/scripts.js"></script>
+</body>
+</html>

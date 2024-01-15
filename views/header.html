@@ -1,0 +1,38 @@
+<header class="header-fitness">
+    <a href="#" class="nav-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+
+    <div class="header-menu">
+        <div class="container">
+            <div class="header-logo">
+                <a href="/" class="logo">欢迎来到，健身王牌</a>
+            </div>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+
+                    <% if (user) { %>
+                    <li><a href="/blog">交流论坛</a></li>
+                    <li><a href="/place">健身房</a></li>
+                    <li class="dropdown">
+                        <a href="#"><%=user.username%> <i class="fa fa-caret-down"></i></a>
+                        <ul>
+                            <li><a href="/admin/index">个人中心</a></li>
+                            <li><a href="/user/logout">退出</a></li>
+                        </ul>
+                    </li>
+
+                    <% } else { %>
+                    <li><a href="/blog">交流论坛</a></li>
+                    <li><a href="/place">健身房</a></li>
+                    <li><a href="/admin/login">登录</a></li>
+                    <% } %>
+
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
